@@ -1,0 +1,74 @@
+.main-article-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-height: 100vh;  // Минимальная высота контейнера (viewport height)
+  gap: 50px;          // Отступ между элементами
+}
+
+.title-part {
+  background-color: rgba(76, 174, 76, 0);
+  width: 40%;
+  height: auto;
+  display: inline-block;
+  margin-top: -10%;
+
+  .title {
+    font-size: 32px;
+
+    .title-blocker {
+      background-color: #f5df4d;
+      padding: 9px 20px;
+      font-weight: 700;
+      color: #000;
+      margin-bottom: 4px;
+      display: inline-block;
+      font-size: 2.75rem;
+      line-height: 1.3;
+      transition: 0.2s ease;
+    }
+  }
+
+  .category-part {
+    display: flex;
+    color: white;
+    gap: 15px;
+
+    .cat {
+      display: inline-block;
+      height: auto;
+      background-color: rgba(0, 0, 0, 0.41);
+      font-size: 12px;
+      padding: 7px 10px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      transition: 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        background-color: black;
+      }
+    }
+  }
+
+  .article-info {
+    display: flex;
+    background-color: rgba(114, 28, 36, 0);
+    font-size: 12px;
+    margin-top: 2%;
+    gap: 15px;
+  }
+}
+
+.content-part {
+  width: 40%;
+  background-color: rgba(114, 28, 36, 0);
+  height: auto;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: black;
+  font-family: suisse-regular, sans-serif !important;
+
+  flex: 1;
+}

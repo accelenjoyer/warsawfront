@@ -1,0 +1,105 @@
+.most-readable-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  h1 {
+    margin: 35px;
+    font-size: 40px;
+    font-family: "Monsterrat",sans-serif;
+    font-weight: 700;
+    text-transform: none;
+    line-height: 1.25;
+    letter-spacing: -0.0125em;
+    color: black;
+
+  }
+}
+
+.news-2x2-grid {
+  width: 100vw;
+  padding-left: max(20px, env(safe-area-inset-left));
+  padding-right: max(20px, env(safe-area-inset-right));
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+}
+
+.news-box {
+  border: 0.2px solid rgba(0, 0, 0, 0.06);
+  position: relative;
+  background-color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2%;
+
+  box-sizing: border-box;
+
+  .top-block {
+    display: flex; /* Делаем top-block flex-контейнером */
+    flex-direction: row; /* Горизонтальное расположение */
+    align-items: flex-start; /* Выравниваем по верху */
+  }
+
+  .news-image {
+    object-fit: cover;
+    display: block;
+    z-index: 10;
+
+
+  }
+
+  .text-container { /* Стилизуем новый контейнер */
+    display: flex;
+    flex-direction: column;
+    width: 50%; /* Оставшаяся ширина для текста */
+    padding-left: 10px; /* Добавляем отступ между изображением и текстом */
+  }
+
+  .news-overlay {
+    z-index: 2;
+    padding: 30px 10px;
+    font-weight: bold;
+    font-size: 1.25rem !important;
+    background: transparent;
+
+
+  }
+  .content-container {
+    z-index: 1000;
+    padding: 10px;
+    font-size: 1rem;
+    line-height: 1;
+    flex: 1;
+    color: #000000;
+  }
+  .main-text {
+    /* Дополнительные стили для основного текста (если нужно) */
+    font-size: 0.9rem;
+    line-height: 1.2;
+    margin-top: 10px;
+    padding: 3px;
+  }
+  .link {
+    .title-block {
+      background-color: #f5df4d;
+      padding: 3px 6px;
+      font-weight: 700;
+      color: #000;
+      display: inline-block; // обязателен, чтобы ширина подстраивалась под текст
+      font-size: 1.25rem;
+      line-height: 1.4;
+      transition: 0.2s ease;
+      box-sizing: border-box;
+      margin-bottom: 1px;
+      margin-left: -60px;
+
+      white-space: nowrap; // 👉 запрещаем перенос на новую строку
+    }
+    &:hover .title-block {
+      background-color: #a8a8a8;
+      color: white;
+    }
+  }
+}
