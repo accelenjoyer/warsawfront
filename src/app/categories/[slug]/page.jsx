@@ -25,10 +25,12 @@ export default async function CategoryPage({ params }) {
     const { slug } = params;
 
     try {
-        const res = await fetch(`http://localhost:5000/api/categories/${slug}`, {
-            cache: 'no-store'
-        });
-
+        const res = await fetch(
+            `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/categories/${slug}`,
+            {
+                cache: 'no-store' // Для динамических данных
+            }
+        );
         if (!res.ok) {
             throw new Error('Не удалось загрузить категорию');
         }

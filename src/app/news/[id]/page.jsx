@@ -6,11 +6,17 @@ import splitTitleIntoLines from "@/lib/splitTitleIntoLines";
 import formatDate from "@/lib/formatDate";
 import ViewTracker from "@/components/ViewTracker/ViewTracker";
 import Link from "next/link";
+
 export default async function NewsPage({ params }) {
     const { id } = params;
 
 
-    const res = await fetch(`http://localhost:5000/api/news/${id}`, { cache: 'no-store' });
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/news/${id}`,
+        {
+            cache: 'no-store'
+        }
+    );
 
     if (!res.ok) {
         return <div>Новость не найдена</div>;

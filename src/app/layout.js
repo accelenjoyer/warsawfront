@@ -5,6 +5,7 @@ import Header from "@/components/Header/Header";
 import React, {Suspense, use, useEffect, useState} from "react";
 import Footer from "@/components/Footer/Footer";
 import ArticleContext from "@/contexts/ArticleContext";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -28,7 +29,7 @@ export default function RootLayout({ children }) {
         const fetchArticles = async () => {
             setLoading(true);
             try {
-                const response = await fetch("http://localhost:5000/api/adminmenu");
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/adminmenu`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -55,7 +56,9 @@ export default function RootLayout({ children }) {
 
         const delayDebounceFn = setTimeout(async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/news/search?query=${encodeURIComponent(searchValue)}`);
+                const response = await fetch(
+                    `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/news/search?query=${encodeURIComponent(searchValue)}`
+                );
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
