@@ -28,17 +28,17 @@ export default async function NewsPage({ params }) {
         <div className="main-article-container">
 
             <ViewTracker articleId={id}/>
-                <Image src={article.images} alt="" width={1160} height={773}/>
+                <Image src={article.images} alt="" width={1160} height={773} className="responsive-img"/>
                 <div className="title-part">
                     <div className="category-part">
                         {article.categories.map(category => (
-
+                            <Link href={`/categories/${category.slug}`}>
                             <div key={category._id} className="cat">{category.name ? category.name : "бля"}</div>
-
+                            </Link>
                         ))}
                     </div>
                     <div className="title">
-                        {splitTitleIntoLines(article.title).map((line, idx) => (
+                        {splitTitleIntoLines(article.title,20).map((line, idx) => (
                             <span key={idx} className="title-blocker">{line}</span>
                         ))}
                     </div>

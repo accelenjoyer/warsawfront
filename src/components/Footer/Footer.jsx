@@ -2,11 +2,14 @@ import React from 'react';
 import "./Footer.scss"
 import Image from "next/image";
 import title from "../../../public/title.png";
+import Link from "next/link";
 const Footer = () => {
     return (
         <div className="footer-container">
             <div className="footer-block">
+                <Link href={`/news/`}>
                 <Image src={title} alt="title" width={150} height={20} />
+                </Link>
             </div>
             <div className="footer-block">
                 <span>Русский</span>

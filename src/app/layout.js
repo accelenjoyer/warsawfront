@@ -5,7 +5,7 @@ import Header from "@/components/Header/Header";
 import React, {Suspense, use, useEffect, useState} from "react";
 import Footer from "@/components/Footer/Footer";
 import ArticleContext from "@/contexts/ArticleContext";
-
+import "./globals.scss"
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -74,7 +74,7 @@ export default function RootLayout({ children }) {
     }, [searchValue, articles]);
     return (
         <html lang="en">
-        <body>
+        <body className="body-container">
         <Header
             articles={filteredArticles}
             searchValue={searchValue}

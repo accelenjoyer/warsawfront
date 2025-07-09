@@ -1,4 +1,4 @@
-"use client"
+
 import React, { useState, useEffect } from 'react';
 import "./MostReadableNews.scss";
 import Image from 'next/image';
@@ -30,7 +30,7 @@ const splitTitleIntoLines = (title, maxLength = 30) => {
 const MostReadableNews = ({articles}) => {
     if (!articles || articles.length === 0) {
         console.log("2222")
-        return <p>Загрузка ...</p>;
+
     }
     return (
         <div className="most-readable-container">

@@ -87,7 +87,9 @@ const Header = ({ articles, searchValue, onSearchChange }) => {
                         <div className="additional-block"></div>
                     </div>
                 </div>
+                <Link href={`/news/`}>
                 <Image src={title} alt="title" width={150} height={20} />
+                </Link>
                 <div className="theme-menu">
                     <ThemeToggler />
                 </div>
@@ -95,6 +97,7 @@ const Header = ({ articles, searchValue, onSearchChange }) => {
 
             <div className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
                 <div className="logo-part">
+
                     <Image src={title} alt="title" width={150} height={20} />
                     <span onClick={toggleSidebar}>
             <svg

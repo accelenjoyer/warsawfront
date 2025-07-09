@@ -5,9 +5,7 @@ import formatDate from "@/lib/formatDate";
 import Link from "next/link";
 import ShowMoreButton from "@/components/ShowMoreButton/ShowMoreButton";
 const LatestNews = ({ articles }) => {
-    if (!articles || articles.length === 0) {
-        return <p>Загрузка...</p>;
-    }
+
     const [visibleCount, setVisibleCount] = useState(4);
 
     const handleShowMore = () => {
