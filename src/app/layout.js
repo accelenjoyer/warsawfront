@@ -1,6 +1,6 @@
 "use client"
 import { Geist, Geist_Mono } from "next/font/google";
-import "../styles/globals.scss"
+    import "../styles/globals.scss"
 import Header from "@/components/Header/Header";
 import React, {Suspense, use, useEffect, useState} from "react";
 import Footer from "@/components/Footer/Footer";
@@ -74,7 +74,7 @@ export default function RootLayout({ children }) {
     }, [searchValue, articles]);
     return (
         <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <body>
         <Header
             articles={filteredArticles}
             searchValue={searchValue}

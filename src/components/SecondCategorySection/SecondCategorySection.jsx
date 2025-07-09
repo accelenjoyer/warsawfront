@@ -44,13 +44,13 @@ const SecondCategorySection = ({articles}) => {
                             <Link href={`/news/${article._id}`}>
                             <h3>{article.title}</h3>
                             </Link>
-                            <p>{truncateContent(article.content)}</p>
+                            <p className="content-text">{truncateContent(article.content)}</p>
                             <div className="article-date">{formatDate(article.date)}</div>
                         </div>
                     </div>
                 ))}
             </div>
-            <ShowMoreButton setVisibleCount={setVisibleCount} visibleCount={visibleCount} style={{transform : "translateY(0px)"}}/>
+            <ShowMoreButton setVisibleCount={setVisibleCount} visibleCount={visibleCount} style={{transform : "translateY(-40px)"}}/>
         </div>
     );
 };

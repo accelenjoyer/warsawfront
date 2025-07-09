@@ -6,5 +6,11 @@
   padding: 16px 10px;
   transform: translateY(-320px);
   cursor: pointer;
+  border: none;
+  @media (max-width: 480px) {
+    transform: none;
+    width: 70%;
 
+
+  }
 }

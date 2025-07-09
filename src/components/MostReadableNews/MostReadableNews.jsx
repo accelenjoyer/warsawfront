@@ -51,7 +51,7 @@ const MostReadableNews = ({articles}) => {
                             <div className="text-container">
                                 <div className="news-overlay">
                                     <Link href={`/news/${article._id}`} className="link">
-                                        {splitTitleIntoLines(article.title,30).map((line, idx) => (
+                                        {splitTitleIntoLines(article.title,28).map((line, idx) => (
                                             <div key={idx} className="title-block">
                                                 {line}
                                             </div>
