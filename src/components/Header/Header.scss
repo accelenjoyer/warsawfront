@@ -24,6 +24,13 @@
       .header-icon:not(:first-child) {
         display: none;
       }
+
+    }
+    @media (max-width: 768px) {
+      .header-icon:not(:first-child) {
+        display: none;
+      }
+
     }
     .header-icon {
       width: 18px;

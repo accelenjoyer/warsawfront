@@ -10,11 +10,11 @@ import {useArticleContext} from "@/contexts/ArticleContext";
 function Home() {
     const { articles} = useArticleContext();
     return (
-        <>
+        <div className="main-box" style={{display : "flex",flexDirection:"column",gap:"50px"}}>
             <MostReadableNews articles={articles}/>
             <LatestNews articles={articles}/>
             <SecondCategorySection articles={articles}/>
-        </>
+        </div>
     );
 }
 export default Home

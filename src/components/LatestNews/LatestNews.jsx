@@ -59,7 +59,7 @@ const LatestNews = ({ articles }) => {
                 ))}
 
             </div>
-            <ShowMoreButton setVisibleCount={setVisibleCount} visibleCount={visibleCount} style={{}}/>
+
         </div>
     );
 };

@@ -50,7 +50,7 @@ const SecondCategorySection = ({articles}) => {
                     </div>
                 ))}
             </div>
-            <ShowMoreButton setVisibleCount={setVisibleCount} visibleCount={visibleCount} style={{transform : "translateY(-40px)"}}/>
+
         </div>
     );
 };
