@@ -106,6 +106,8 @@
   line-height: 1.5;
   color: black;
   font-family: suisse-regular, sans-serif !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word;
 
   flex: 1;
   @media (max-width: 480px) {

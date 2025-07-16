@@ -61,6 +61,9 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    word-break: break-word !important;
+    overflow-wrap: break-word;
+
   }
   .latest-overlay {
     font-weight: 700;
@@ -84,6 +87,7 @@ h2 {
     display: flex;
     flex-direction: column;
     gap: 20px;
+
 
   }
   .info {
