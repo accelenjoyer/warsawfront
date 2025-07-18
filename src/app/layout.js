@@ -1,20 +1,15 @@
 "use client"
-import { Geist, Geist_Mono } from "next/font/google";
+
     import "../styles/globals.scss"
 import Header from "@/components/Header/Header";
 import React, {Suspense, use, useEffect, useState} from "react";
 import Footer from "@/components/Footer/Footer";
 import ArticleContext from "@/contexts/ArticleContext";
-import "./globals.scss"
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import LoadingSpinner from "@/components/LoadingSpinner/LoadingSpinner";
+import {ThemeProvider} from "@/contexts/ThemeContext";
+
+
 
 
 
@@ -24,6 +19,8 @@ export default function RootLayout({ children }) {
     const [error, setError] = useState(null);
     const [filteredArticles, setFilteredArticles] = useState([]);
     const [searchValue, setSearchValue] = useState('');
+
+
 
     useEffect(() => {
         const fetchArticles = async () => {
@@ -75,15 +72,27 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
         <body className="body-container">
+            <ThemeProvider>
+
+
         <Header
             articles={filteredArticles}
             searchValue={searchValue}
             onSearchChange={setSearchValue}
+
         />
-        <ArticleContext.Provider value={{ articles }}>
-            {children}
-        </ArticleContext.Provider>
-        <Footer/>
+        {loading && <LoadingSpinner />}
+
+        {/* 3️⃣ Контент (children) показывается ТОЛЬКО после загрузки */}
+        {!loading && (
+            <ArticleContext.Provider value={{ articles }}>
+                {children}
+                <Footer/>
+            </ArticleContext.Provider>
+
+
+        )}
+            </ThemeProvider>
         </body>
         </html>
     );

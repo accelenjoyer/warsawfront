@@ -9,7 +9,7 @@
   .category-name {
     width: 50%;
     height: 250px;
-
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -67,7 +67,7 @@
   .text-part {
     width: 50%;
     height: 100%;
-
+    color: var(--text-color);
     display: flex;
     padding: 2%;
     flex-direction: column;
@@ -101,7 +101,7 @@
   }
 
   &:hover {
-    color: #313131;
+    color: var(--hover);
   }
 }
   .main-texter {
@@ -116,10 +116,10 @@
     font-size: 12px;
     display: flex;
     gap: 10px;
-    color: rgba(61, 61, 61, 0.54);
+    
     align-items: center;
     justify-content: flex-start;
-
+    color: var(--text-color);
     span {
       display: flex;
       align-items: center;

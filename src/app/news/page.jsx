@@ -6,11 +6,12 @@ import LatestNews from "@/components/LatestNews/LatestNews";
 import Footer from "@/components/Footer/Footer";
 import SecondCategorySection from "@/components/SecondCategorySection/SecondCategorySection";
 import {useArticleContext} from "@/contexts/ArticleContext";
+import "./page.scss"
 
 function Home() {
     const { articles} = useArticleContext();
     return (
-        <div className="main-box" style={{display : "flex",flexDirection:"column",gap:"50px"}}>
+        <div className="main-box" >
             <MostReadableNews articles={articles}/>
             <LatestNews articles={articles}/>
             <SecondCategorySection articles={articles}/>

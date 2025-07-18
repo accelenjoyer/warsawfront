@@ -9,7 +9,7 @@ import wordEndings from "@/lib/getViewsWord";
 import getViewsWord from "@/lib/getViewsWord";
 import Link from "next/link";
 
-const Header = ({ articles, searchValue, onSearchChange }) => {
+const Header = ({ articles, searchValue, onSearchChange,}) => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const [searchbarOpen, setSearchbarOpen] = useState(false);
     const [additionalBarOpen,setAdditionalBarOpen] = useState(false)
@@ -91,7 +91,7 @@ const Header = ({ articles, searchValue, onSearchChange }) => {
                 <Image src={title} alt="title" width={150} height={20} />
                 </Link>
                 <div className="theme-menu">
-                    <ThemeToggler />
+                    <ThemeToggler/>
                 </div>
             </div>
 
