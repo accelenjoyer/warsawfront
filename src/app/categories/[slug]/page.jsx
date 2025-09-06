@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import getViewsWord from "@/lib/getViewsWord";
 import formatDate from "@/lib/formatDate";
+import PreviewTextFromHtml from "@/lib/PreviewTextFromHtml";
 
 
 const Ogranichenie = (text, OgranichitelValue) => {
@@ -81,7 +82,7 @@ export default async function CategoryPage({ params }) {
                                 <Link href={`/news/${article._id}`}>
                                     <span className="title-info">{article.title}</span>
                                 </Link>
-                                <p className="main-texter">{Ogranichenie(article.content,0)}</p>
+                                <p className="main-texter"><div dangerouslySetInnerHTML={{ __html: PreviewTextFromHtml(article.content) }} /></p>
                                 <div className="date-box">
                                     <span> {formatDate(article.date)}</span>
                                     <span>

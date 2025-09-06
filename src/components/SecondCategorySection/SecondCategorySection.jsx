@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link";
 import ShowMoreButton from "@/components/ShowMoreButton/ShowMoreButton";
 import formatDate from "@/lib/formatDate";
+import PreviewTextFromHtml from "@/lib/PreviewTextFromHtml";
 
 
 const SecondCategorySection = ({articles}) => {
@@ -18,7 +19,7 @@ const SecondCategorySection = ({articles}) => {
 
     return (
         <div className="second-container">
-            <h2 style={{color: "black"}}>Категория</h2>
+            <h2 style={{color: "black"}}>Актуальное</h2>
             <div className="grid-container">
                 {articles.slice(0,visibleCount).map((article) => (
                     <div key={article.id} className="grid-item">
@@ -44,13 +45,13 @@ const SecondCategorySection = ({articles}) => {
                             <Link href={`/news/${article._id}`}>
                             <h3>{article.title}</h3>
                             </Link>
-                            <p className="content-text">{truncateContent(article.content)}</p>
+                            <div dangerouslySetInnerHTML={{ __html: PreviewTextFromHtml(article.content) }} style={{fontWeight : "100", fontSize : "14px"}} className="html-preview"/>
                             <div className="article-date">{formatDate(article.date)}</div>
                         </div>
                     </div>
                 ))}
             </div>
-
+<ShowMoreButton setVisibleCount={setVisibleCount} visibleCount={visibleCount}/>
         </div>
     );
 };

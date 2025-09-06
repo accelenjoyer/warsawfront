@@ -8,6 +8,8 @@ import truncateText from "@/lib/truncateText";
 import formatDate from "@/lib/formatDate";
 import Link from "next/link";
 import getViewsWord from "@/lib/getViewsWord";
+import PlainText from "@/lib/PlainText";
+import PreviewTextFromHtml from "@/lib/PreviewTextFromHtml";
 
 const splitTitleIntoLines = (title, maxLength = 30) => {
     const words = title.split(' ');
@@ -28,15 +30,11 @@ const splitTitleIntoLines = (title, maxLength = 30) => {
 };
 
 const MostReadableNews = ({articles}) => {
-    if (!articles || articles.length === 0) {
-        console.log("2222")
-
-    }
     return (
         <div className="most-readable-container">
             <h1>Самые читаемые новости недели</h1>
             <div className="news-2x2-grid">
-                {articles.slice(0, 4).map((article, i) => (
+                {articles.filter(article => article.views).slice(0, 4).map((article, i) => (
                     <div key={article._id || i} className="news-box">
                         <div className="top-block">
                             <Link href={`/news/${article._id}`}>
@@ -59,8 +57,8 @@ const MostReadableNews = ({articles}) => {
                                     </Link>
                                 </div>
                                 <div className="main-text">
-                                    <p>{article.content}</p>
-                                   <p style={{marginTop:"12px",textTransform:"uppercase",fontSize: "10px"}}> Автор: {article.author} {formatDate(article.date)} {article.views} {getViewsWord(article.views.length,0)}</p>
+                                    <div dangerouslySetInnerHTML={{ __html: PreviewTextFromHtml(article.content) }} />
+                                   <p style={{marginTop:"12px",textTransform:"uppercase",fontSize: "10px"}}>  {formatDate(article.date)} {article.views} {getViewsWord(article.views.length,0)}</p>
                                 </div>
                             </div>
                         </div>
@@ -68,6 +66,7 @@ const MostReadableNews = ({articles}) => {
                     </div>
                 ))}
             </div>
+
         </div>
     );
 };

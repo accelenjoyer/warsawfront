@@ -6,6 +6,7 @@ import splitTitleIntoLines from "@/lib/splitTitleIntoLines";
 import formatDate from "@/lib/formatDate";
 import ViewTracker from "@/components/ViewTracker/ViewTracker";
 import Link from "next/link";
+import PlainText from "@/lib/PlainText";
 
 export default async function NewsPage({ params }) {
     const { id } = params;
@@ -42,13 +43,13 @@ export default async function NewsPage({ params }) {
                             <span key={idx} className="title-blocker">{line}</span>
                         ))}
                     </div>
-
+                    <div className="html" dangerouslySetInnerHTML={{ __html: article.content }} />
                     <div className="article-info">
                         <span>АВТОР:{article.author}</span> <span>{formatDate(article.date)}</span>
                     </div>
                 </div>
             <div className="content-part">
-                {article.content}
+                {PlainText(article.content)}
             </div>
 
         </div>

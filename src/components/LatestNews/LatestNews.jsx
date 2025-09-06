@@ -4,6 +4,7 @@ import Image from "next/image";
 import formatDate from "@/lib/formatDate";
 import Link from "next/link";
 import ShowMoreButton from "@/components/ShowMoreButton/ShowMoreButton";
+import PreviewTextFromHtml from "@/lib/PreviewTextFromHtml";
 const LatestNews = ({ articles }) => {
 
     const [visibleCount, setVisibleCount] = useState(4);
@@ -49,7 +50,7 @@ const LatestNews = ({ articles }) => {
                                 </Link>
                             </div>
                             <div className="latest-text">
-                                <p>{truncateContent(article.content)}</p>
+                                <div dangerouslySetInnerHTML={{ __html: PreviewTextFromHtml(article.content) }} />
                                 <span className="info">{formatDate(article.date)}</span>
                             </div>
                         </div>
@@ -59,6 +60,7 @@ const LatestNews = ({ articles }) => {
                 ))}
 
             </div>
+            <ShowMoreButton visibleCount={visibleCount} setVisibleCount={setVisibleCount}/>
 
         </div>
     );

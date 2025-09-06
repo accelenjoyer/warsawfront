@@ -74,13 +74,20 @@ const Header = ({ articles, searchValue, onSearchChange,}) => {
                     <div className={`additional-wrapper ${additionalBarOpen ? 'open' : ''}`} onMouseEnter={ActivateAdditionalBar} onMouseLeave={DeActivateAdditionalBar}>
                         <div className="additional-block">
                             <ul>
-                                <li>Город</li>
-                                <li>Транспорт</li>
-                                <li>Люди</li>
-                                <li>Политика</li>
-                                <li>Здоровье</li>
-                                <li>Происшествия</li>
-                                <li>Полезное</li>
+                                {articles
+                                    .flatMap(article => article.categories)
+                                    .filter((category, index, array) =>
+                                        array.findIndex(c => c._id === category._id) === index
+                                    )
+                                    .slice(0, 6)
+                                    .map((category, index) => (
+                                        <li key={category._id || category.id || index}>
+                                            <Link href={`/categories/${category.slug}`}>
+                                                {category.name || "Без категории"}
+                                            </Link>
+                                        </li>
+                                    ))
+                                }
                             </ul>
                         </div>
                         <div className="additional-block"></div>
@@ -119,13 +126,20 @@ const Header = ({ articles, searchValue, onSearchChange,}) => {
                 </div>
                 <h2 className="razdel">Разделы</h2>
                 <ul>
-                    <li>Город</li>
-                    <li>Транспорт</li>
-                    <li>Люди</li>
-                    <li>Политика</li>
-                    <li>Здоровье</li>
-                    <li>Происшествия</li>
-                    <li>Полезное</li>
+                    {articles
+                        .flatMap(article => article.categories)
+                        .filter((category, index, array) =>
+                            array.findIndex(c => c._id === category._id) === index
+                        )
+                        .slice(0, 6)
+                        .map((category, index) => (
+                            <li key={category._id || category.id || index}>
+                                <Link href={`/categories/${category.slug}`}>
+                                    {category.name || "Без категории"}
+                                </Link>
+                            </li>
+                        ))
+                    }
                 </ul>
             </div>
 
