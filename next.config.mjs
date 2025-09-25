@@ -2,7 +2,7 @@
 const nextConfig = {
     reactStrictMode: true,
     images: {
-        domains: ['www.the-warsaw.pl','warszawa-diaspora.pl'],
+        domains: ['www.the-warsaw.pl','warszawa-diaspora.pl','warsawhere.com'],
     },
 };
 
